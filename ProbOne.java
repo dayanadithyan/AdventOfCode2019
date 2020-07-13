@@ -1,5 +1,6 @@
 import java.io.*;
 import java.lang.String;
+import java.util.Arrays;
 
 public class ProbOne {
     public static void main ( final String[] args ) throws IOException {
@@ -40,11 +41,20 @@ public class ProbOne {
 
                 temp2[i] = Integer.parseInt(listing[i]) / 3 - 2;
                 count += temp2[i];
+                count += checker2(temp2[i],0);
         }
 
         return count;
     }
 
+    public static int checker2(int temp3, int count2) {
+        if(temp3 < 0 )
+            return count2;
+        temp3 = temp3 / 3 - 2;
+        if (temp3 > 0)		
+            count2 += temp3;
+            return checker2(temp3, count2);
+    }
 }
 
 
